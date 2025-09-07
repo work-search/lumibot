@@ -1,2 +1,4 @@
-requests
-bs4
+aiohttp
+aiosqlite
+beautifulsoup4
+langdetect
