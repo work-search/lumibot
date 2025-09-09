@@ -9,7 +9,7 @@ from database import init_db, fermer_db
 from langdetect import detect, LangDetectException
 
 class RobotExplorateurAsync:
-    def __init__(self, chemin_bdd='sites_web.db', chemin_file='file_attente.db', concurrency=5):
+    def __init__(self, chemin_bdd='database/sites_web.db', chemin_file='database/file_attente.db', concurrency=5):
         self.chemin_bdd = chemin_bdd
         self.chemin_file = chemin_file
         self.concurrency = concurrency
@@ -164,3 +164,4 @@ class RobotExplorateurAsync:
             for w in workers:
                 w.cancel()
             await fermer_db(self.conn, self.conn_file)
+
