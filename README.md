@@ -1,6 +1,6 @@
 # api_princ
 
-
+discord: https://discord.gg/QkwWDKeMjF
 
 En cas de problème avec le scrapping du bot sur votre site, merci de me contacter: axel@athenox.dev
 
