@@ -18,7 +18,9 @@ BLACKLIST_URLS = [
     "https://wikipedia.org",
     "https://www.wikipedia.org",
     "https://github.com",
-    "https://www.github.com"
+    "https://www.github.com",
+    "https://trustpilot.com",
+    "https://www.trustpilot.com"
 ]
 
 # Motifs interdits dans les URLs
