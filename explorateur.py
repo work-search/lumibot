@@ -57,7 +57,7 @@ class RobotExplorateurAsync:
             (url, titre, description)
         )
         await self.conn.commit()
-        print(f"[{datetime.now()}] 📥 Site ajouté : {url}")
+        print(f"[{datetime.now()}] New : {url}")
 
     async def explorer_page(self, session, url):
         async with self.conn_file.execute("SELECT statut FROM file_urls WHERE url=?", (url,)) as cursor:
@@ -88,13 +88,13 @@ class RobotExplorateurAsync:
                     try:
                         langue_detectee = detect(texte_page)
                         if langue_detectee != 'fr':
-                            print(f"[{datetime.now()}] ⚠️ Page non francophone détectée : {url} (langue: {langue_detectee})")
+                            print(f"[{datetime.now()}] Pas de francais detecte : {url} (langue: {langue_detectee})")
                             await self.marquer_url_echouee(url)
                             return
                         else:
-                            print(f"[{datetime.now()}] ✅ Page francophone confirmée : {url} (langue: {langue_detectee})")
+                            print(f"[{datetime.now()}] Francais detecte : {url} (langue: {langue_detectee})")
                     except LangDetectException:
-                        print(f"[{datetime.now()}] ℹ️ Détection de langue impossible pour {url}, traitement continué.")
+                        print(f"[{datetime.now()}] Impossiblde de verifier la langue {url}, traitement continué.")
                         pass  # Si la détection échoue, on continue
 
 
@@ -126,7 +126,7 @@ class RobotExplorateurAsync:
                 await self.marquer_url_terminee(url)
 
         except Exception as e:
-            print(f"[{datetime.now()}] ❌ Erreur lors de l'exploration de {url}: {e}")
+            print(f"[{datetime.now()}] Erreur lors de l'exploration de {url}: {e}")
             await self.marquer_url_echouee(url)
 
                                   
@@ -158,10 +158,11 @@ class RobotExplorateurAsync:
         try:
             await self.queue.join()
         except asyncio.CancelledError:
-            print("⚠️ Exploration interrompue.")
+            print("Exploration interrompue.")
             raise
         finally:
             for w in workers:
                 w.cancel()
             await fermer_db(self.conn, self.conn_file)
+
 
