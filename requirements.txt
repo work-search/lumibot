@@ -2,3 +2,5 @@ aiohttp
 aiosqlite
 beautifulsoup4
 langdetect
+aiosqlite
+# typing-extensions (a voir par la suite)
