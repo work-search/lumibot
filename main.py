@@ -17,5 +17,6 @@ if __name__ == "__main__":
     try:
         asyncio.run(explorateur.commencer_exploration(url_depart))
     except (KeyboardInterrupt, SystemExit):
-        print("\n🛑 Arrêt demandé par l’utilisateur.")
+        print("\n Arret en cours...")
         sys.exit(0)
+
