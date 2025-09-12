@@ -2,6 +2,7 @@ import aiosqlite
 import requests
 from config import *
 import asyncio
+import os
 
 API_URL = "https://marvideo.fr/lumina/?action=add"
 BATCH_SIZE = 100
@@ -34,6 +35,7 @@ async def main():
     for i in range(0, len(pages), BATCH_SIZE):
         batch = pages[i:i+BATCH_SIZE]
         send_batch(batch, i // BATCH_SIZE + 1)
+    os.remove("database/sites_web.db")
 
 if __name__ == "__main__":
     asyncio.run(main())
