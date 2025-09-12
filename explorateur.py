@@ -47,8 +47,6 @@ class RobotExplorateurAsync:
         await self.conn_file.commit()
         await self.queue.put(url)
 
-
-
     async def sauvegarder_donnees_page(self, url, titre, description):
         if contient_motif_interdit(url, MOTIFS_INTERDITS):
             return
@@ -129,8 +127,6 @@ class RobotExplorateurAsync:
             print(f"[{datetime.now()}] ❌ Erreur lors de l'exploration de {url}: {e}")
             await self.marquer_url_echouee(url)
 
-                                  
-                                
     async def marquer_url_terminee(self, url):
         await self.conn_file.execute("UPDATE file_urls SET statut='terminee' WHERE url=?", (url,))
         await self.conn_file.commit()

@@ -1,7 +1,12 @@
 import aiosqlite
+import os
 from datetime import datetime
 
 async def init_db(chemin_bdd, chemin_file):
+    try:
+        os.mkdir("database")
+    except:
+        print("")
     conn = await aiosqlite.connect(chemin_bdd)
     await conn.execute('''
         CREATE TABLE IF NOT EXISTS pages (
