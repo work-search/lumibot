@@ -89,8 +89,8 @@ class RobotExplorateurAsync:
                             print(f"[{datetime.now()}] ⚠️ Page non francophone détectée : {url} (langue: {langue_detectee})")
                             await self.marquer_url_echouee(url)
                             return
-                        else:
-                            print(f"[{datetime.now()}] ✅ Page francophone confirmée : {url} (langue: {langue_detectee})")
+                        #else:
+                            #print(f"[{datetime.now()}] ✅ Page francophone confirmée : {url} (langue: {langue_detectee})")
                     except LangDetectException:
                         print(f"[{datetime.now()}] ℹ️ Détection de langue impossible pour {url}, traitement continué.")
                         pass  # Si la détection échoue, on continue
@@ -160,4 +160,3 @@ class RobotExplorateurAsync:
             for w in workers:
                 w.cancel()
             await fermer_db(self.conn, self.conn_file)
-
