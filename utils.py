@@ -1,4 +1,5 @@
 from urllib.parse import urlparse
+from robots_manager import is_allowed
 
 def contient_motif_interdit(url, motifs_interdits):
     """Vérifie si l'URL contient un caractère ou motif interdit"""
@@ -35,3 +36,10 @@ def est_url_valide(url, extensions_autorisees):
         return any(domaine.endswith(ext) for ext in extensions_autorisees)
     except:
         return False
+
+async def safe_scrape(session, url, scrape_func):
+    if not await is_allowed(session, url):
+        print(f"❌ Scraping interdit pour {url} (robots.txt)")
+        return None
+    print(f"✅ Scraping autorisé pour {url}")
+    return await scrape_func(session, url)
