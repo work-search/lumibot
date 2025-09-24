@@ -14,3 +14,6 @@ This project is licensed under the [GNU Affero General Public License v3.0](LICE
 
 You are free to use, modify, and distribute this code under the terms of the AGPL-3.0 license.  
 Any modifications made and used over a network (including server-side deployments) must also be released under the AGPL-3.0.
+
+
+[![Lumibot](https://github-readme-stats.vercel.app/api/pin/?username=work-search&repo=lumibot&theme=radical)](https://github.com/work-search/lumibot)
