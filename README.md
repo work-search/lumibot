@@ -72,8 +72,3 @@ En cas de problème avec le scraping du bot sur votre site, veuillez contacter :
 
 *   **Discord**: [https://discord.gg/QkwWDKeMjF](https://discord.gg/QkwWDKeMjF)
 *   **Email**: [axel@athenox.dev](mailto:axel@athenox.dev)
-
-
-
-
-[![Lumibot](https://github-readme-stats.vercel.app/api/pin/?username=work-search&repo=lumibot&theme=radical)](https://github.com/work-search/lumibot)
