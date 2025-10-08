@@ -1,7 +1,7 @@
 # Extensions et types autorisés/interdits
 EXTENSIONS_AUTORISEES = [
     '.net', '.fr', '.com', '.eu', '.org', '.ovh', '.plus', '.dev',
-    '.xyz', '.io', '.tech', '.site', '.store', '.shop', '.app'
+    '.xyz', '.io', '.tech', '.site', '.store', '.shop', '.app', '.wiki'
 ]
 
 EXTENSIONS_FICHIERS_INTERDITES = [
@@ -45,6 +45,8 @@ BLACKLIST_URLS = [
     "https://www.github.com",
     "https://trustpilot.com",
     "https://www.trustpilot.com",
+    "https://pinterest.com",
+    "https://www.pinterest.com",
 
     # anti-tracking
     "doubleclick.net",
