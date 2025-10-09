@@ -67,9 +67,10 @@ MOTIFS_INTERDITS = [
 
 # En-têtes HTTP
 EN_TETES = {
-    'User-Agent': 'Lumibot/2.0 (https://github.com/work-search/api_princ)',
+    'User-Agent': 'Lumibot/2.0 (https://github.com/work-search/lumibot)',
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
     'Accept-Language': 'fr,en;q=0.9',
     'Accept-Encoding': 'gzip, deflate, br',
     'Connection': 'keep-alive'
 }
+
