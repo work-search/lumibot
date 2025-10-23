@@ -1,9 +1,13 @@
 import aiosqlite
+import os
 from datetime import datetime
 from typing import Tuple, Optional
 
 
 async def init_db(chemin_bdd: str, chemin_file: str) -> Tuple[aiosqlite.Connection, aiosqlite.Connection]:
+    # Créer le répertoire database s'il n'existe pas
+    os.makedirs(os.path.dirname(chemin_bdd), exist_ok=True)
+    os.makedirs(os.path.dirname(chemin_file), exist_ok=True)
     async with aiosqlite.connect(chemin_bdd) as conn:
         await conn.execute('''
             CREATE TABLE IF NOT EXISTS pages (

@@ -1,0 +1,60 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lumibot"
+version = "2.0.0"
+description = "Robot d'exploration web asynchrone pour le contenu francophone"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "AGPL-3.0"}
+authors = [
+    {name = "Work Search", email = "axel@athenox.dev"}
+]
+keywords = ["web scraping", "crawler", "bot", "async", "francophone"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: GNU Affero General Public License v3",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Internet :: WWW/HTTP :: Indexing/Search",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+dependencies = [
+    "aiohttp>=3.9.0",
+    "aiosqlite>=0.19.0",
+    "beautifulsoup4>=4.12.0",
+    "langdetect>=1.0.9",
+    "robotexclusionrulesparser>=1.7.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "black>=23.0.0",
+    "mypy>=1.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/work-search/lumibot"
+Repository = "https://github.com/work-search/lumibot.git"
+Issues = "https://github.com/work-search/lumibot/issues"
+Discord = "https://discord.gg/QkwWDKeMjF"
+
+[project.scripts]
+lumibot = "main:main"
+
+[tool.black]
+line-length = 100
+target-version = ['py311']
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
