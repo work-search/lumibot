@@ -29,6 +29,20 @@ Pour installer et exécuter Lumibot, suivez les étapes ci-dessous :
     pip install -r requirements.txt
     ```
 
+## Tests
+
+Pour exécuter les tests unitaires :
+
+```bash
+python3 -m unittest test_utils.py -v
+```
+
+Ou avec pytest (si installé) :
+
+```bash
+pytest test_utils.py -v
+```
+
 ## Utilisation
 
 Pour démarrer le robot d'exploration :

@@ -1,9 +1,21 @@
 import aiohttp
 from urllib.parse import urlparse
+from typing import Optional
 from robotexclusionrulesparser import RobotExclusionRulesParser
 from robots_db import get_robots_from_db, store_robots_in_db
 
-async def fetch_robots_txt(session, domain):
+
+async def fetch_robots_txt(session: aiohttp.ClientSession, domain: str) -> Optional[str]:
+    """
+    Récupère le fichier robots.txt d'un domaine
+    
+    Args:
+        session: Session aiohttp pour les requêtes HTTP
+        domain: Nom de domaine (sans protocole)
+        
+    Returns:
+        Contenu du robots.txt ou None si erreur/introuvable
+    """
     robots_url = f"https://{domain}/robots.txt"
     try:
         async with session.get(robots_url, timeout=5) as response:
@@ -13,7 +25,18 @@ async def fetch_robots_txt(session, domain):
         print(f"Erreur lors de la récupération du robots.txt pour {domain}: {e}")
     return None
 
-async def is_allowed(session, url):
+
+async def is_allowed(session: aiohttp.ClientSession, url: str) -> bool:
+    """
+    Vérifie si le scraping d'une URL est autorisé selon robots.txt
+    
+    Args:
+        session: Session aiohttp pour les requêtes HTTP
+        url: URL complète à vérifier
+        
+    Returns:
+        True si autorisé, False sinon
+    """
     parsed_url = urlparse(url)
     domain = parsed_url.netloc
     path = parsed_url.path
