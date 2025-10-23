@@ -19,13 +19,13 @@ async def is_allowed(session, url):
     path = parsed_url.path
 
     # 1. Vérifie en base
-    robots_content = get_robots_from_db(domain)
+    robots_content = await get_robots_from_db(domain)
 
     # 2. Si pas en base, tente de le récupérer
     if robots_content is None:
         robots_content = await fetch_robots_txt(session, domain)
         if robots_content is not None:
-            store_robots_in_db(domain, robots_content)
+            await store_robots_in_db(domain, robots_content)
         else:
             print(f"Aucun robots.txt trouvé pour {domain}, accès autorisé par défaut.")
             return True
