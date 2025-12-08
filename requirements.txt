@@ -3,3 +3,4 @@ aiosqlite
 beautifulsoup4
 langdetect
 robotexclusionrulesparser
+brotli
