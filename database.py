@@ -40,6 +40,12 @@ async def init_db(chemin_bdd: str, chemin_file: str) -> Tuple[aiosqlite.Connecti
 
 async def fermer_db(conn: Optional[aiosqlite.Connection], conn_file: Optional[aiosqlite.Connection]) -> None:
     if conn:
+        # Désactiver WAL et faire un checkpoint pour consolider les données
+        await conn.execute("PRAGMA journal_mode=DELETE")
+        await conn.commit()
         await conn.close()
     if conn_file:
+        # Désactiver WAL et faire un checkpoint pour consolider les données
+        await conn_file.execute("PRAGMA journal_mode=DELETE")
+        await conn_file.commit()
         await conn_file.close()
